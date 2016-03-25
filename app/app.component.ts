@@ -25,6 +25,6 @@ export class AppComponent {
     ];
   }
   mealWasSelected(clickedMeal: Meal): void {
-    console.log("change the styling or sumpin of this thing", clickedMeal);
+    
   }
 }

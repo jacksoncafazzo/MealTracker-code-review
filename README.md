@@ -1,3 +1,6 @@
+was {{ meal.calories }} calories
+  <h4>because I: {{ meal.details }}</h4>
+
 #Slabtown Gym Meal Calorie Tracker
 
 ##Epicodus Code Review Project week 2
