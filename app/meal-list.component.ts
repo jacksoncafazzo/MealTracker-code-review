@@ -5,6 +5,7 @@ import { NewMealComponent } from './new-meal.component';
 import { EditMealComponent } from './edit-meal.component';
 import { NamePipe } from './name.pipe';
 import { CaloriesPipe } from './calories.pipe';
+//import { UpdateTotalComponent } from './update-total.component';
 
 @Component({
   selector: 'meal-list',
@@ -22,13 +23,13 @@ export class MealListComponent {
   public selectedMeal: Meal;
   public filterName: string = "all";
   public filterCalories: string = "";
+  public dayTotal: number = 0;
   constructor() {
     this.onMealSelect = new EventEmitter();
   }
   mealClicked(clickedMeal: Meal): void {
     this.selectedMeal = clickedMeal;
     this.onMealSelect.emit(clickedMeal);
-    console.log(clickedMeal);
   }
 
   onNameChange(filterOption) {
@@ -42,4 +43,14 @@ export class MealListComponent {
       new Meal(mealArray[0], mealArray[1], mealArray[2], this.mealList.length)
     );
   }
+  totalCalories(mealList): void {
+    var total: number = 0;
+    console.log(mealList);
+    mealList.forEach(function(meal){
+      total = total + +(meal.calories);
+    });
+    console.log(total);
+    this.dayTotal = total;
+  }
+
 }

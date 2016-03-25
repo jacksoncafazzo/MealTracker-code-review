@@ -3,7 +3,7 @@
     <div *ngFor="#meal of mealList | name:filterName | calories:filterCalories"
     (click)="mealClicked(meal)"
     [class.selected]="meal === selectedMeal">
-    <h3>{{ meal.name }} was {{meal.calories}} calories </h3>
+    <h3>I ate {{meal.calories}} calories of {{ meal.name }}</h3>
     <h4>because I {{meal.details}}</h4>
     </div>
   </div>
@@ -12,7 +12,8 @@
   </div>
 </div>
 <div class="row">
-
+<h3>Calories for today's meals: {{ dayTotal }}</h3>
+<button (click)="totalCalories(mealList)" class="btn-success btn-lg add-button">Update</button>
 <label>View specific meal details</label>
 <select (change)="onNameChange($event.target.value)" class="filter">
   <option value="names" selected="selected">Show all with Details</option>
