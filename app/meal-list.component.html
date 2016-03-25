@@ -1,16 +1,24 @@
-<div *ngFor="#meal of mealList | name:filterName"
-  (click)="mealClicked(meal)"
-  [class.selected]="meal === selectedMeal">
-  <h3>{{ meal.name }} was {{meal.calories}}</h3>
-  <h4>because I {{meal.details}}</h4>
+<div class="row">
+  <div class="col-sm-6">
+    <div *ngFor="#meal of mealList | name:filterName"
+    (click)="mealClicked(meal)"
+    [class.selected]="meal === selectedMeal">
+    <h3>{{ meal.name }} was {{meal.calories}} calories </h3>
+    <h4>because I {{meal.details}}</h4>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
+  </div>
 </div>
-<div *ngFor="#meal of mealDetails">
-  <h4>{{meal.name}} was {{meal.calories}}</h4>
-  <h4>because I {{meal.details}}</h4>
-</div>
+<div class="row">
+
 <label>View specific meal details</label>
 <select (change)="onNameChange($event.target.value)" class="filter">
   <option value="names" selected="selected">Show all with Details</option>
   <option *ngFor="#currentMeal of mealList" value="{{ currentMeal.name }}">{{ currentMeal.name }}</option>
 </select>
+</div>
+<div class="row">
 <new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
+</div>

@@ -3,20 +3,19 @@ import { MealComponent } from './meal.component';
 import { Meal } from './meal.model';
 import { NewMealComponent } from './new-meal.component';
 import { NamePipe } from './name.pipe';
-import { MealDetailsComponent } from './meal-details.component';
+import { EditMealComponent } from './edit-meal.component';
 
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
   outputs: ['onMealSelect'],
-  directives: [MealComponent, NewMealComponent, MealDetailsComponent],
+  directives: [MealComponent, NewMealComponent, EditMealComponent],
   pipes: [NamePipe],
   templateUrl: 'app/meal-list.component.html'
 })
 
 export class MealListComponent {
   public mealList: Meal[];
-  public mealDetails: Meal[];
 
   public onMealSelect: EventEmitter<Meal>;
   public selectedMeal: Meal;

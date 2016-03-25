@@ -7,8 +7,9 @@ body {
     color: $primaryText;
     text-shadow: 2px 2px 2px lightgrey;
     font-size: 5em;
+    text-align: center;
   }
-  h3, h4, label {
+  h2, h3, h4, label {
     color: $primaryText;
   }
   h3 {
@@ -16,5 +17,17 @@ body {
   }
   h4 {
     letter-spacing: 1px;
+  }
+  .meal-form {
+    width: 400px;
+    float: left;
+
+  }
+  .meal-form input {
+    padding-bottom: 5px;
+  }
+  .selected h3 {
+    color: red;
+    font-style:oblique;
   }
 }
