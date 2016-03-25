@@ -1,0 +1,7 @@
+<div class="meal-form">
+  <h3>I just ate this: </h3>
+  <input placeholder="Chicken Caeser Salad" class="col-sm-8 input-lg" #newName>
+  <input placeholder="went light on the dressing" class="col-sm-8 input-lg" #newDetails>
+  <input placeholder="500" class="col-sm-8 input-lg" #newCalories>
+  <button (click)="addMeal(newName, newDetails, newCalories)" class="btn-success btn-lg add-button">Add Meal</button>
+</div>

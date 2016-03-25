@@ -1,11 +1,10 @@
 {
-  "name": "todo-angular2",
-  "description": "",
+  "name": "meal-tracker",
+  "description": "track calories",
   "main": "index.js",
   "license": "ISC",
-  "moduleType": ["globals",
-    "node"],
-  "homepage": "",
+  "moduleType": [],
+  "homepage": "https://github.com/jacksoncafazzo/MealTracker-code-review",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,5 +14,8 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6"
-  }
+  },
+  "authors": [
+    "Jackson Cafazzo <doctorjuno@gmail.com>"
+  ]
 }

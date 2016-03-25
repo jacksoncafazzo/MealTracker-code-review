@@ -1,0 +1,6 @@
+<meal-display *ngFor="#currentMeal of mealList"
+  (click)="mealCLicked(currentMeal)"
+  [class.selected]="currentMeal === selectedMeal"
+  [meal]="currentMeal">
+</meal-display>
+<new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
