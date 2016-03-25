@@ -22,6 +22,11 @@ body {
   h4 {
     letter-spacing: 1px;
   }
+  li, p {
+    color: lightgray;
+    list-style:none;
+  }
+
   .meal-list {
     width: 100%;
     height: 100%;

@@ -24,7 +24,9 @@ export class AppComponent {
   public meals: Meal[];
   constructor() {
     this.meals = [
-    new Meal("Protein Smoothie", "Homemade with whey protein", 220, 0)
+    new Meal("Protein Smoothie", "made it at home with whey protein", 220, new Date(), 0),
+    new Meal("Chicken Wings", "added awesomesauce", 512, new Date(), 1),
+    new Meal("Bagel", "ate it with butter", 290, new Date(), 2)
     ];
   }
   mealWasSelected(clickedMeal: Meal): void {

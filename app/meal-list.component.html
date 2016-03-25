@@ -3,8 +3,8 @@
     <div *ngFor="#meal of mealList | name:filterName | calories:filterCalories"
     (click)="mealClicked(meal)"
     [class.selected]="meal === selectedMeal">
-    <h3>I ate {{meal.calories}} calories of {{ meal.name }}</h3>
-    <h4>because I {{meal.details}}</h4>
+    <h3>I ate {{meal.calories}} calories of {{ meal.name }} at {{ meal.date | date:'shortTime'}}</h3>
+    <h4>because I {{meal.details}} </h4>
     </div>
   </div>
   <div class="col-sm-6">
@@ -13,25 +13,29 @@
 </div>
 <div class="row">
   <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12">
-    <h3>View specific meal details</h3>
+    <h3>View specific meal details with these filters</h3>
+    <p>Both filters apply to the list. Choose a pre-entered meal to get started</p>
     <select (change)="onNameChange($event.target.value)" class="filter">
       <option value="names" selected="selected">Show all with Details</option>
       <option *ngFor="#currentMeal of mealList" value="{{ currentMeal.name }}">{{ currentMeal.name }}</option>
     </select>
     <select (change)="onCalorieChange($event.target.value)" class="filter">
-      <option value="" selected="selected">Show all</option>
+      <option value="" selected="selected">Show Based on Calories</option>
       <option value="low">Show meals under 300 calories</option>
       <option value="high">Show meals over 300 calories</option>
     </select>
     <new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
   </div>
   <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12">
-    <h3>Calories for today's meals: {{ dayTotal }}</h3>
-    <button (click)="totalCalories(mealList)" class="btn-success btn-lg update-button">Update</button>
-    <h3>Average calories consumed per meal today {{ dayAverage }}</h3>
-    <button (click)="averageCalories(mealList)" class="btn-success btn-lg update-button">Update</button>
+    <label>Calories for today's meals: {{ dayTotal }}</label>
+    <button (click)="totalCalories(mealList)" class="btn-success update-button">Update</button>
+    <label>Average calories consumed per meal today {{ dayAverage }}</label>
+    <button (click)="averageCalories(mealList)" class="btn-success update-button">Update</button>
+    <h4>How many calories would be left<br>after an hour at Slabtown Gym: {{dayTotal - 600}}</h4>
+    <br>
+    <h4>More suggestions to burn those calories off!</h4>
+    <ul>
+    </ul>
+    <health-tips></health-tips>
   </div>
-</div>
-<div class="row">
-
 </div>
