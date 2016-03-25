@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-6">
-    <div *ngFor="#meal of mealList | name:filterName"
+    <div *ngFor="#meal of mealList | name:filterName | calories:filterCalories"
     (click)="mealClicked(meal)"
     [class.selected]="meal === selectedMeal">
     <h3>{{ meal.name }} was {{meal.calories}} calories </h3>
@@ -17,6 +17,11 @@
 <select (change)="onNameChange($event.target.value)" class="filter">
   <option value="names" selected="selected">Show all with Details</option>
   <option *ngFor="#currentMeal of mealList" value="{{ currentMeal.name }}">{{ currentMeal.name }}</option>
+</select>
+<select (change)="onCalorieChange($event.target.value)" class="filter">
+  <option value="" selected="selected">Show all</option>
+  <option value="low">Show meals under 300 calories</option>
+  <option value="high">Show meals over 300 calories</option>
 </select>
 </div>
 <div class="row">

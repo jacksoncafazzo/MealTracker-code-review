@@ -1,25 +1,27 @@
 import { Component, EventEmitter } from 'angular2/core';
-import { MealComponent } from './meal.component';
 import { Meal } from './meal.model';
+import { MealComponent } from './meal.component';
 import { NewMealComponent } from './new-meal.component';
-import { NamePipe } from './name.pipe';
 import { EditMealComponent } from './edit-meal.component';
+import { NamePipe } from './name.pipe';
+import { CaloriesPipe } from './calories.pipe';
 
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
   outputs: ['onMealSelect'],
   directives: [MealComponent, NewMealComponent, EditMealComponent],
-  pipes: [NamePipe],
+  pipes: [NamePipe, CaloriesPipe],
   templateUrl: 'app/meal-list.component.html'
 })
 
+
 export class MealListComponent {
   public mealList: Meal[];
-
   public onMealSelect: EventEmitter<Meal>;
   public selectedMeal: Meal;
   public filterName: string = "all";
+  public filterCalories: string = "";
   constructor() {
     this.onMealSelect = new EventEmitter();
   }
@@ -31,7 +33,9 @@ export class MealListComponent {
 
   onNameChange(filterOption) {
     this.filterName = filterOption;
-    console.log(filterOption);
+  }
+  onCalorieChange(filterOption) {
+    this.filterCalories = filterOption;
   }
   createMeal(mealArray): void {
     this.mealList.push(
