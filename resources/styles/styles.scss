@@ -3,6 +3,10 @@ $primaryText: white;
 body {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("/resources/images/background.jpg");
   background-size: cover;
+  .container {
+    width: 100%;
+    height: 100%;
+  }
   h1 {
     color: $primaryText;
     text-shadow: 2px 2px 2px lightgrey;
@@ -18,6 +22,10 @@ body {
   h4 {
     letter-spacing: 1px;
   }
+  .meal-list {
+    width: 100%;
+    height: 100%;
+  }
   .meal-form {
     width: 400px;
     float: left;
@@ -30,4 +38,5 @@ body {
     color: red;
     font-style:oblique;
   }
+
 }

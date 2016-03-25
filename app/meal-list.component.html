@@ -12,21 +12,26 @@
   </div>
 </div>
 <div class="row">
-<h3>Calories for today's meals: {{ dayTotal }}</h3>
-<button (click)="totalCalories(mealList)" class="btn-success btn-lg update-button">Update</button>
-<h3>Average calories consumed per meal today {{ dayAverage }}</h3>
-<button (click)="averageCalories(mealList)" class="btn-success btn-lg update-button">Update</button>
-<label>View specific meal details</label>
-<select (change)="onNameChange($event.target.value)" class="filter">
-  <option value="names" selected="selected">Show all with Details</option>
-  <option *ngFor="#currentMeal of mealList" value="{{ currentMeal.name }}">{{ currentMeal.name }}</option>
-</select>
-<select (change)="onCalorieChange($event.target.value)" class="filter">
-  <option value="" selected="selected">Show all</option>
-  <option value="low">Show meals under 300 calories</option>
-  <option value="high">Show meals over 300 calories</option>
-</select>
+  <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12">
+    <h3>View specific meal details</h3>
+    <select (change)="onNameChange($event.target.value)" class="filter">
+      <option value="names" selected="selected">Show all with Details</option>
+      <option *ngFor="#currentMeal of mealList" value="{{ currentMeal.name }}">{{ currentMeal.name }}</option>
+    </select>
+    <select (change)="onCalorieChange($event.target.value)" class="filter">
+      <option value="" selected="selected">Show all</option>
+      <option value="low">Show meals under 300 calories</option>
+      <option value="high">Show meals over 300 calories</option>
+    </select>
+    <new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
+  </div>
+  <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12">
+    <h3>Calories for today's meals: {{ dayTotal }}</h3>
+    <button (click)="totalCalories(mealList)" class="btn-success btn-lg update-button">Update</button>
+    <h3>Average calories consumed per meal today {{ dayAverage }}</h3>
+    <button (click)="averageCalories(mealList)" class="btn-success btn-lg update-button">Update</button>
+  </div>
 </div>
 <div class="row">
-<new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
+
 </div>

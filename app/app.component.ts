@@ -7,7 +7,10 @@ import { Meal } from './meal.model';
   directives: [MealListComponent],
   template: `
   <div class="container">
-    <h1>Slabtown Gym</h1><h2>Member Meal Calorie Tracker</h2>
+    <div id="title">
+      <h1>Slabtown Gym</h1>
+    </div>
+    <h2>Member Meal Calorie Tracker</h2>
 
     <meal-list
     [mealList]="meals"
