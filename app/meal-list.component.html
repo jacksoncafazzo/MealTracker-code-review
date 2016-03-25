@@ -13,7 +13,9 @@
 </div>
 <div class="row">
 <h3>Calories for today's meals: {{ dayTotal }}</h3>
-<button (click)="totalCalories(mealList)" class="btn-success btn-lg add-button">Update</button>
+<button (click)="totalCalories(mealList)" class="btn-success btn-lg update-button">Update</button>
+<h3>Average calories consumed per meal today {{ dayAverage }}</h3>
+<button (click)="averageCalories(mealList)" class="btn-success btn-lg update-button">Update</button>
 <label>View specific meal details</label>
 <select (change)="onNameChange($event.target.value)" class="filter">
   <option value="names" selected="selected">Show all with Details</option>

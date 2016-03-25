@@ -24,6 +24,7 @@ export class MealListComponent {
   public filterName: string = "all";
   public filterCalories: string = "";
   public dayTotal: number = 0;
+  public dayAverage: number = 0;
   constructor() {
     this.onMealSelect = new EventEmitter();
   }
@@ -52,5 +53,13 @@ export class MealListComponent {
     console.log(total);
     this.dayTotal = total;
   }
-
+  averageCalories(mealList): void {
+    var average = 0;
+    mealList.forEach(function(meal){
+      average = average + +(meal.calories);
+    });
+    average = average / mealList.length;
+    console.log(average);
+    this.dayAverage = average;
+  }
 }
