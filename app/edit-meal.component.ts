@@ -11,6 +11,7 @@ import {Meal} from './meal.model';
   <input [(ngModel)]="meal.name" class="input-lg meal-form"/>
   <input [(ngModel)]="meal.calories" class="input-lg meal-form"/>
   <input [(ngModel)]="meal.details" class="input-lg meal-form"/>
+  <input [(ngModel)]="meal.date" class="input-lg meal-form"/>
   </div>
   `
 })

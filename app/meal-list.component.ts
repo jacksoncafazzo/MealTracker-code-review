@@ -31,7 +31,7 @@ export class MealListComponent {
   mealClicked(clickedMeal: Meal): void {
     this.selectedMeal = clickedMeal;
     this.onMealSelect.emit(clickedMeal);
-    console.log(new Date());
+
   }
 
   onNameChange(filterOption) {
@@ -41,8 +41,11 @@ export class MealListComponent {
     this.filterCalories = filterOption;
   }
   createMeal(mealArray): void {
+    var dateString = "";
+    var newDate = new Date();
+    dateString += newDate.getHours() + ":" + newDate.getMinutes() + " " + (newDate.getMonth() + 1) + "/" + (newDate.getDate() + "/" + newDate.getFullYear());
     this.mealList.push(
-      new Meal(mealArray[0], mealArray[1], mealArray[2], new Date(), this.mealList.length)
+      new Meal(mealArray[0], mealArray[1], mealArray[2], dateString, this.mealList.length)
     );
   }
   totalCalories(mealList): void {

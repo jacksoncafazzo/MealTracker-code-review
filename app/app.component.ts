@@ -23,12 +23,17 @@ import { Meal } from './meal.model';
 export class AppComponent {
   public meals: Meal[];
   constructor() {
+    var dateString = "";
+    var newDate = new Date();
+    dateString += newDate.getHours() + ":" + newDate.getMinutes() + " " + (newDate.getMonth() + 1) + "/" + (newDate.getDate() + "/" + newDate.getFullYear());
     this.meals = [
-    new Meal("Protein Smoothie", "made it at home with whey protein", 220, new Date(), 0),
-    new Meal("Chicken Wings", "added awesomesauce", 512, new Date(), 1),
-    new Meal("Bagel", "ate it with butter", 290, new Date(), 2)
+    new Meal("Protein Smoothie", "made it at home with whey protein", 220, dateString, 0),
+    new Meal("Chicken Wings", "added awesomesauce", 512, dateString, 1),
+    new Meal("Bagel", "ate it with butter", 290, dateString, 2)
     ];
   }
+
+
   mealWasSelected(clickedMeal: Meal): void {
 
   }
